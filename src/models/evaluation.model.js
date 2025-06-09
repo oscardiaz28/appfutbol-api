@@ -20,5 +20,7 @@ export const Evaluation = database.define('Evaluation', {
     },
     fecha: DataTypes.DATE
 }, {
+    tableName: "evaluations",
+    freezeTableName: true,
     timestamps: false,
 })

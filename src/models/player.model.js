@@ -37,6 +37,8 @@ export const Player = database.define('Player', {
         defaultValue: false
     }
 }, {
+    tableName: "players",
+    freezeTableName: true,
     timestamps: false
 })
 
