@@ -41,6 +41,8 @@ export const User = database.define("User", {
         }
     }
 }, {
+    tableName: "users",
+    freezeTableName: true,
     timestamps: false
 })
 

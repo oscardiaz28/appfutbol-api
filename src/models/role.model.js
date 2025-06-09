@@ -9,5 +9,6 @@ export const Role = database.define('Role', {
     }
 }, {
     tableName: 'roles',
+    freezeTableName: true,
     timestamps: false
 })
