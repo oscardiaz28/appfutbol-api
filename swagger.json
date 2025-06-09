@@ -324,40 +324,51 @@
             "type": "string"
           },
           {
-            "name": "body",
+            "name": "obj",
             "in": "body",
+            "required": true,
             "schema": {
               "type": "object",
               "properties": {
                 "nombre": {
-                  "example": "any"
+                  "type": "string",
+                  "example": "Carlos"
                 },
                 "apellido": {
-                  "example": "any"
+                  "type": "string",
+                  "example": "Perez Ramos"
                 },
                 "fecha_nacimiento": {
-                  "example": "any"
+                  "type": "string",
+                  "example": "2001-12-12"
                 },
                 "fecha_registro": {
-                  "example": "any"
+                  "type": "string",
+                  "example": "2025-06-08"
                 },
                 "identificacion": {
-                  "example": "any"
+                  "type": "string",
+                  "example": "12345678"
                 },
                 "pais": {
-                  "example": "any"
+                  "type": "string",
+                  "example": "Peru"
                 },
                 "talla": {
-                  "example": "any"
+                  "type": "string",
+                  "example": "1.65"
                 },
                 "peso": {
-                  "example": "any"
+                  "type": "string",
+                  "example": "55.50"
                 },
                 "pie_habil": {
-                  "example": "any"
+                  "type": "string",
+                  "example": "derecho"
                 },
                 "posicion": {
-                  "example": "any"
+                  "type": "string",
+                  "example": "delantero"
                 }
               }
             }
@@ -431,6 +442,24 @@
             "name": "authorization",
             "in": "header",
             "type": "string"
+          },
+          {
+            "name": "obj",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "pais": {
+                  "type": "string",
+                  "example": "Ecuador"
+                },
+                "monto": {
+                  "type": "string",
+                  "example": "150.00"
+                }
+              }
+            }
           }
         ],
         "responses": {
@@ -533,16 +562,19 @@
             "type": "string"
           },
           {
-            "name": "body",
+            "name": "obj",
             "in": "body",
+            "required": true,
             "schema": {
               "type": "object",
               "properties": {
                 "nombre": {
-                  "example": "any"
+                  "type": "string",
+                  "example": "Fisica"
                 },
                 "icono": {
-                  "example": "any"
+                  "type": "string",
+                  "example": "⚽"
                 }
               }
             }
@@ -606,19 +638,23 @@
             "type": "string"
           },
           {
-            "name": "body",
+            "name": "obj",
             "in": "body",
+            "required": true,
             "schema": {
               "type": "object",
               "properties": {
                 "nombre": {
-                  "example": "any"
+                  "type": "string",
+                  "example": "Velocidad"
                 },
                 "descripcion": {
-                  "example": "any"
+                  "type": "string",
+                  "example": "Velocidad alcanzada por el jugador"
                 },
                 "typeId": {
-                  "example": "any"
+                  "type": "number",
+                  "example": 1
                 }
               }
             }
@@ -654,22 +690,39 @@
             "type": "string"
           },
           {
-            "name": "body",
+            "name": "obj",
             "in": "body",
+            "required": true,
             "schema": {
               "type": "object",
               "properties": {
                 "playerId": {
-                  "example": "any"
+                  "type": "number",
+                  "example": 8
                 },
                 "tipoId": {
-                  "example": "any"
+                  "type": "number",
+                  "example": 1
                 },
                 "fecha": {
-                  "example": "any"
+                  "type": "string",
+                  "example": "2025-08-06"
                 },
                 "parametros": {
-                  "example": "any"
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "parametroId": {
+                        "type": "number",
+                        "example": 2
+                      },
+                      "valor": {
+                        "type": "number",
+                        "example": 5
+                      }
+                    }
+                  }
                 }
               }
             }
@@ -711,13 +764,27 @@
             "type": "string"
           },
           {
-            "name": "body",
+            "name": "obj",
             "in": "body",
+            "required": true,
             "schema": {
               "type": "object",
               "properties": {
                 "parametros": {
-                  "example": "any"
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "parametroId": {
+                        "type": "number",
+                        "example": 2
+                      },
+                      "valor": {
+                        "type": "number",
+                        "example": 2
+                      }
+                    }
+                  }
                 }
               }
             }

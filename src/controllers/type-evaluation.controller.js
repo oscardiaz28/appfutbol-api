@@ -5,6 +5,14 @@ export const addTypeEvaluation = async (req, res) => {
       /**
     #swagger.tags = ['Tipo de Evaluaciones'] 
     #swagger.summary = "Agregar un tipo de evaluacion"
+    #swagger.parameters['obj'] = {
+         in: 'body',
+         required: true,
+         schema: {
+            "nombre": "Fisica",
+            "icono": "⚽"
+        }
+     }
      */
     const {nombre, icono} = req.body || {}
     if(nombre.trim() === "" ){
@@ -25,6 +33,15 @@ export const addParameter = async (req, res) => {
      /**
     #swagger.tags = ['Tipo de Evaluaciones'] 
     #swagger.summary = "Agregar parametros de evaluacion"
+    #swagger.parameters['obj'] = {
+         in: 'body',
+         required: true,
+         schema: {
+            "nombre": "Velocidad",
+            "descripcion": "Velocidad alcanzada por el jugador",
+            "typeId": 1
+        }
+     }
      */
     const {nombre, descripcion, typeId} = req.body || {}
     if(isNaN(typeId)){

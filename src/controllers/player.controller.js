@@ -46,6 +46,22 @@ export const addPlayer = async (req, res) => {
      /**
     #swagger.tags = ['Jugadores'] 
     #swagger.summary = "Registrar un jugador"
+    #swagger.parameters['obj'] = {
+         in: 'body',
+         required: true,
+         schema: {
+            "nombre": "Carlos",
+            "apellido": "Perez Ramos",
+            "fecha_nacimiento": "2001-12-12",
+            "fecha_registro": "2025-06-08",
+            "identificacion": "12345678",
+            "pais": "Peru",
+            "talla": "1.65",
+            "peso": "55.50",
+            "pie_habil": "derecho",
+            "posicion": "delantero"
+        }
+     }
      */
     const {id} = req.user
     const {error} = addPlayerSchema.validate(req.body)
@@ -98,6 +114,14 @@ export const editPlayer = async (req, res) => {
      /**
     #swagger.tags = ['Jugadores'] 
     #swagger.summary = "Actualizar datos de un jugador"
+    #swagger.parameters['obj'] = {
+         in: 'body',
+         required: true,
+         schema: {
+            "pais": "Ecuador",
+            "monto": "150.00"
+        }
+     }
      */
     const {id} = req.params
     if( isNaN(id) ){

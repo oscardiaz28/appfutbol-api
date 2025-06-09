@@ -8,6 +8,19 @@ export const createEvaluation = async (req, res) => {
     /**
     #swagger.tags = ['Evaluaciones'] 
     #swagger.summary = "Crear evaluacion a un jugador"
+    #swagger.parameters['obj'] = {
+         in: 'body',
+         required: true,
+         schema: {
+            "playerId": 8,
+            "tipoId": 1,
+            "fecha": "2025-08-06",
+            "parametros": [
+                { "parametroId": 1, "valor": 7 },
+                { "parametroId": 2, "valor": 5 }
+            ]
+        }
+     }
      */
     const {playerId, tipoId, fecha, parametros} = req.body || {}
     try{
@@ -40,6 +53,16 @@ export const editEvaluation = async (req, res) => {
     /**
     #swagger.tags = ['Evaluaciones'] 
     #swagger.summary = "Editar evaluacion de un jugador"
+    #swagger.parameters['obj'] = {
+         in: 'body',
+         required: true,
+         schema: {
+            "parametros": [
+                { "parametroId": 1, "valor": 1 },
+                { "parametroId": 2, "valor": 2 }
+            ]
+        }
+     }
      */
     const {id: evaluationId} = req.params
     const {parametros} = req.body
