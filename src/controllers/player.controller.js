@@ -8,6 +8,10 @@ import { DetailEvaluation } from "../models/DetailEvaluation.model.js"
 import { ParametroEvaluation } from "../models/ParametroEvaluation.model.js"
 
 export const getAll = async (req, res) => {
+    /**
+    #swagger.tags = ['Jugadores'] 
+    #swagger.summary = "Obtener todos los jugadores registrados"
+     */
     let {page = 1, size = 5, posicion} = req.query
     page = parseInt(page)
     size = parseInt(size)
@@ -39,6 +43,10 @@ export const getAll = async (req, res) => {
 }
 
 export const addPlayer = async (req, res) => {
+     /**
+    #swagger.tags = ['Jugadores'] 
+    #swagger.summary = "Registrar un jugador"
+     */
     const {id} = req.user
     const {error} = addPlayerSchema.validate(req.body)
     if(error){
@@ -65,6 +73,10 @@ export const addPlayer = async (req, res) => {
 
 
 export const getOne = async (req, res) => {
+     /**
+    #swagger.tags = ['Jugadores'] 
+    #swagger.summary = "Obtener a un jugador"
+     */
     const {id} = req.params
     if( isNaN(id) ){
         return res.status(400).json({message: "El ID es inválido"})
@@ -83,6 +95,10 @@ export const getOne = async (req, res) => {
 
 
 export const editPlayer = async (req, res) => {
+     /**
+    #swagger.tags = ['Jugadores'] 
+    #swagger.summary = "Actualizar datos de un jugador"
+     */
     const {id} = req.params
     if( isNaN(id) ){
         return res.status(400).json({message: "El ID es inválido"})
@@ -101,6 +117,10 @@ export const editPlayer = async (req, res) => {
 
 
 export const setPlayerStatus = async (req, res) => {
+     /**
+    #swagger.tags = ['Jugadores'] 
+    #swagger.summary = "Establece estado de un jugador (activo/desactivado)"
+     */
     const {id} = req.params
     if( isNaN(id) ){
         return res.status(400).json({message: "El ID es inválido"})
@@ -121,6 +141,10 @@ export const setPlayerStatus = async (req, res) => {
 
 
 export const setPlayerAsProspecto = async (req, res) => {
+     /**
+    #swagger.tags = ['Jugadores'] 
+    #swagger.summary = "Marcar jugador como prospecto (seguimiento)"
+     */
     const {id} = req.params
     if( isNaN(id) ){
         return res.status(400).json({message: "El ID es inválido"})
@@ -142,6 +166,10 @@ export const setPlayerAsProspecto = async (req, res) => {
 
 
 export const searchPlayer = async (req, res) => {
+     /**
+    #swagger.tags = ['Jugadores'] 
+    #swagger.summary = "Buscar jugador por nombre y/o apellido"
+     */
     const query = req.query.query || ""
     try{
         let players;
@@ -166,6 +194,10 @@ export const searchPlayer = async (req, res) => {
 
 
 export const deletePlayer = async (req, res) => {
+      /**
+    #swagger.tags = ['Jugadores'] 
+    #swagger.summary = "Eliminar un jugador"
+     */
     const {id} = req.params
     if( isNaN(id) ){
         return res.status(400).json({message: "El ID es inválido"})
@@ -183,6 +215,10 @@ export const deletePlayer = async (req, res) => {
 
 
 export const getPlayerEvaluations = async (req, res) => {
+    /**
+    #swagger.tags = ['Evaluaciones'] 
+    #swagger.summary = "Obtener evaluaciones de un jugadorr"
+     */
     const {id} = req.params
     if(isNaN(id)){
         return res.status(400).json({message: "El id no es valido"})

@@ -5,6 +5,10 @@ import { Player } from "../models/player.model.js"
 import { TypeEvaluation } from "../models/TypeEvaluation.model.js"
 
 export const createEvaluation = async (req, res) => {
+    /**
+    #swagger.tags = ['Evaluaciones'] 
+    #swagger.summary = "Crear evaluacion a un jugador"
+     */
     const {playerId, tipoId, fecha, parametros} = req.body || {}
     try{
         const player = await Player.findByPk(playerId)
@@ -33,6 +37,10 @@ export const createEvaluation = async (req, res) => {
 }
 
 export const editEvaluation = async (req, res) => {
+    /**
+    #swagger.tags = ['Evaluaciones'] 
+    #swagger.summary = "Editar evaluacion de un jugador"
+     */
     const {id: evaluationId} = req.params
     const {parametros} = req.body
     if(isNaN(evaluationId)) return res.status(400).json({message: "El ID no es valido"})

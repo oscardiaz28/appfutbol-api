@@ -8,6 +8,8 @@ import { authRoutes } from './routes/auth.route.js'
 import { playerRoutes } from './routes/player.route.js'
 import { typeEvaluationRoutes } from './routes/type-evaluation.route.js'
 import { evaluationRoutes } from './routes/evaluation.route.js'
+import swaggerUI from 'swagger-ui-express'
+
 import './models/index.js';
 
 
@@ -17,7 +19,11 @@ database.authenticate()
 
 dotenv.config()
 const PORT = process.env.PORT || 5001
+
 const app = express()
+import swaggerDocumentation from '../swagger.json' assert {type: 'json'}
+
+app.use("/docs", swaggerUI.serve, swaggerUI.setup(swaggerDocumentation))
 
 app.use(morgan('dev'))
 app.use(cors())

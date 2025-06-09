@@ -2,6 +2,10 @@ import { ParametroEvaluation } from "../models/ParametroEvaluation.model.js"
 import { TypeEvaluation } from "../models/TypeEvaluation.model.js"
 
 export const addTypeEvaluation = async (req, res) => {
+      /**
+    #swagger.tags = ['Tipo de Evaluaciones'] 
+    #swagger.summary = "Agregar un tipo de evaluacion"
+     */
     const {nombre, icono} = req.body || {}
     if(nombre.trim() === "" ){
         return res.status(400).json({message: "El nombre es obligatorio"})
@@ -18,6 +22,10 @@ export const addTypeEvaluation = async (req, res) => {
 }
 
 export const addParameter = async (req, res) => {
+     /**
+    #swagger.tags = ['Tipo de Evaluaciones'] 
+    #swagger.summary = "Agregar parametros de evaluacion"
+     */
     const {nombre, descripcion, typeId} = req.body || {}
     if(isNaN(typeId)){
         return res.status(400).json({message: "Parámetro inválido"})
@@ -39,6 +47,10 @@ export const addParameter = async (req, res) => {
 
 
 export const getAllTypes = async (req, res) => {
+     /**
+    #swagger.tags = ['Tipo de Evaluaciones'] 
+    #swagger.summary = "Listar los tipos de evaluaciones disponibles"
+     */
     try{
         const tipos = await TypeEvaluation.findAll({where: {estado: true}});
         res.json(tipos)
@@ -50,6 +62,10 @@ export const getAllTypes = async (req, res) => {
 
 
 export const getParameters = async (req, res) => {
+     /**
+    #swagger.tags = ['Tipo de Evaluaciones'] 
+    #swagger.summary = "Obtener los parametros de un tipo de evaluacion"
+     */
     const {id} = req.params
     if(isNaN(id)) return res.status(400).json({message: "El ID no es válido"})
     try{
